@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # CreatorFlow — Photography Marketplace & Studio Management Platform
 
 [![Built with React](https://img.shields.io/badge/Frontend-React%2019%20%2B%20TypeScript-blue)](https://react.dev/)
@@ -219,3 +220,7 @@ CreatorFlow is pre-configured for Vercel deployment:
 ---
 
 © 2025 CreatorFlow Sri Lanka. Built for creators and clients.
+=======
+# LENZXORA-
+The dual-sided marketplace and business operating system for Sri Lankan photographers, filmmakers, and clients. Discover talent, compare transparent packages, and manage bookings seamlessly.
+>>>>>>> 196368d3809b3d48601d549ae04b04bc1951efac
