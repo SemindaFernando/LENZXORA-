@@ -1,7 +1,7 @@
 import { dataService } from '../services/dataService';
 
 export function runCriticalWorkflowTests() {
-  console.log('--- Running CreatorFlow Critical Workflow Tests ---');
+  console.log('--- Running LENZXORA Critical Workflow Tests ---');
   let passed = 0;
   let total = 0;
 

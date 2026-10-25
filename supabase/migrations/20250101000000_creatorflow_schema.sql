@@ -1,4 +1,4 @@
--- CreatorFlow Database Schema & Row Level Security Policies
+-- LENZXORA Database Schema & Row Level Security Policies
 -- Platform: Supabase / PostgreSQL
 
 -- 1. EXTENSIONS
@@ -420,7 +420,7 @@ BEGIN
     0.00,
     v_offer.proposed_price_lkr,
     'confirmed',
-    'Booking confirmed via CreatorFlow budget request acceptance.'
+    'Booking confirmed via LENZXORA budget request acceptance.'
   ) RETURNING id INTO v_booking_id;
 
   -- 4. Update request status and accepted offer

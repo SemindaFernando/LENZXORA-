@@ -7,13 +7,13 @@ export const AboutPage: React.FC = () => {
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 space-y-16">
       <div className="text-center max-w-3xl mx-auto space-y-4">
         <span className="px-3 py-1 rounded-full bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider">
-          About CreatorFlow Sri Lanka
+          About LENZXORA Sri Lanka
         </span>
         <h1 className="text-3xl sm:text-5xl font-extrabold text-neutral-900 tracking-tight leading-tight">
           Empowering Sri Lanka’s Visual Artists & Clients
         </h1>
         <p className="text-neutral-600 text-sm sm:text-base leading-relaxed">
-          CreatorFlow was born to solve two critical problems: helping clients discover trustworthy, verified photographers with transparent LKR pricing, and providing creative studios with a powerful operating system to manage bookings, shoot schedules, editing deadlines, and cash flow.
+          LENZXORA was born to solve two critical problems: helping clients discover trustworthy, verified photographers with transparent LKR pricing, and providing creative studios with a powerful operating system to manage bookings, shoot schedules, editing deadlines, and cash flow.
         </p>
       </div>
 
@@ -24,7 +24,7 @@ export const AboutPage: React.FC = () => {
           </div>
           <h3 className="font-bold text-base text-neutral-900">Tailored for Sri Lanka</h3>
           <p className="text-xs text-neutral-500 leading-relaxed">
-            From Poruwa ceremonies in Kandy and Galle beach destination shoots to commercial hospitality in Colombo, CreatorFlow supports island-wide discovery in Sri Lankan Rupees.
+            From Poruwa ceremonies in Kandy and Galle beach destination shoots to commercial hospitality in Colombo, LENZXORA supports island-wide discovery in Sri Lankan Rupees.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export const AboutPage: React.FC = () => {
       <div className="bg-neutral-900 text-white p-8 sm:p-12 rounded-3xl text-center space-y-4">
         <h2 className="text-2xl sm:text-3xl font-extrabold">Ready to explore or join the platform?</h2>
         <p className="text-xs sm:text-sm text-neutral-300 max-w-xl mx-auto">
-          Whether you are hosting an unforgettable milestone or running a full-time photo studio, CreatorFlow is built for you.
+          Whether you are hosting an unforgettable milestone or running a full-time photo studio, LENZXORA is built for you.
         </p>
         <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
           <Link

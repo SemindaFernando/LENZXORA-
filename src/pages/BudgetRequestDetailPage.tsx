@@ -421,7 +421,7 @@ export const BudgetRequestDetailPage: React.FC = () => {
             <div className="p-4 bg-neutral-50 rounded-2xl border border-neutral-100 space-y-2 text-xs text-neutral-600">
               <div className="font-bold text-neutral-800 flex items-center space-x-1.5">
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                <span>CreatorFlow Booking Protection</span>
+                <span>LENZXORA Booking Protection</span>
               </div>
               <p className="text-[11px] leading-relaxed">
                 Accepted offers lock the date automatically in the studio schedule with milestone payment tracking in Sri Lankan Rupees.

@@ -1,4 +1,4 @@
-// Standalone Node.js Test Runner for CreatorFlow Critical Workflows
+// Standalone Node.js Test Runner for LENZXORA Critical Workflows
 import { runCriticalWorkflowTests } from '../src/tests/workflow.test.ts';
 
 try {

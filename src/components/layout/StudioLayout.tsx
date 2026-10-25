@@ -61,7 +61,7 @@ export const StudioLayout: React.FC = () => {
               <Camera className="w-4 h-4" />
             </div>
             <div>
-              <div className="font-bold text-sm tracking-tight text-white">CreatorFlow</div>
+              <div className="font-bold text-sm tracking-tight text-white">LENZXORA</div>
               <div className="text-[10px] text-amber-400 uppercase tracking-wider font-semibold">Studio OS</div>
             </div>
           </Link>

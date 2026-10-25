@@ -45,7 +45,7 @@ import { isSupabaseConfigured, supabase } from '../lib/supabase';
 function getStorage<T>(key: string, initial: T): T {
   try {
     if (typeof window === 'undefined' || !window.localStorage) return initial;
-    const item = localStorage.getItem(`creatorflow_${key}`);
+    const item = localStorage.getItem(`lenzxora_${key}`) || localStorage.getItem(`creatorflow_${key}`);
     return item ? JSON.parse(item) : initial;
   } catch (e) {
     return initial;
@@ -55,7 +55,7 @@ function getStorage<T>(key: string, initial: T): T {
 function setStorage<T>(key: string, value: T): void {
   try {
     if (typeof window === 'undefined' || !window.localStorage) return;
-    localStorage.setItem(`creatorflow_${key}`, JSON.stringify(value));
+    localStorage.setItem(`lenzxora_${key}`, JSON.stringify(value));
   } catch (e) {
     // ignore
   }

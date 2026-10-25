@@ -25,7 +25,7 @@ export const ClientPaymentsPage: React.FC = () => {
         <div className="bg-white p-5 rounded-3xl border border-neutral-200 shadow-xs space-y-1">
           <span className="text-xs text-neutral-500">Total Deposits Paid</span>
           <div className="text-2xl font-extrabold text-emerald-600">{formatLKR(totalPaid)}</div>
-          <span className="text-[11px] text-neutral-400">Verified through CreatorFlow</span>
+          <span className="text-[11px] text-neutral-400">Verified through LENZXORA</span>
         </div>
 
         <div className="bg-white p-5 rounded-3xl border border-neutral-200 shadow-xs space-y-1">

@@ -28,7 +28,7 @@ export const ContactPage: React.FC = () => {
           <div className="bg-white p-5 rounded-2xl border border-neutral-200 shadow-xs space-y-2">
             <Mail className="w-5 h-5 text-amber-500" />
             <div className="font-bold text-xs text-neutral-900">Email Support</div>
-            <div className="text-xs text-neutral-600">support@creatorflow.lk</div>
+            <div className="text-xs text-neutral-600">support@lenzxora.lk</div>
             <div className="text-[11px] text-neutral-400">Response within 24 hours</div>
           </div>
 
@@ -53,7 +53,7 @@ export const ContactPage: React.FC = () => {
               <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
               <h3 className="font-bold text-base text-neutral-900">Message Received</h3>
               <p className="text-xs text-neutral-500 max-w-sm mx-auto">
-                Thank you for contacting CreatorFlow. Our team will review your inquiry and follow up shortly.
+                Thank you for contacting LENZXORA. Our team will review your inquiry and follow up shortly.
               </p>
             </div>
           ) : (

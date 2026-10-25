@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-# CreatorFlow — Photography Marketplace & Studio Management Platform
+# LENZXORA — Photography Marketplace & Studio Management Platform
 
 [![Built with React](https://img.shields.io/badge/Frontend-React%2019%20%2B%20TypeScript-blue)](https://react.dev/)
 [![Styling with Tailwind CSS](https://img.shields.io/badge/Styles-Tailwind%20CSS-38bdf8)](https://tailwindcss.com/)
 [![Database & Auth](https://img.shields.io/badge/Backend-Supabase%20%2F%20PostgreSQL-3ecf8e)](https://supabase.com/)
-[![Currency](https://img.shields.io/badge/Currency-Sri%20Lankan%20Rupees%20(LKR)-amber)](https://creatorflow.lk/)
+[![Currency](https://img.shields.io/badge/Currency-Sri%20Lankan%20Rupees%20(LKR)-amber)](https://lenzxora.lk/)
 [![Deployment Target](https://img.shields.io/badge/Deploy-Vercel-black)](https://vercel.com/)
 
-**CreatorFlow** is a modern, responsive full-stack web application designed for the Sri Lankan photography and videography industry. It connects clients with vetted local photographers through a transparent public marketplace and budget bidding system, while equipping photographers with a private, end-to-end **Studio Operating System** to manage contracts, bookings, calendar availability, post-production editing pipelines, private client CRM records, and LKR cash flow.
+**LENZXORA** is a modern, responsive full-stack web application designed for the Sri Lankan photography and videography industry. It connects clients with vetted local photographers through a transparent public marketplace and budget bidding system, while equipping photographers with a private, end-to-end **Studio Operating System** to manage contracts, bookings, calendar availability, post-production editing pipelines, private client CRM records, and LKR cash flow.
 
 ---
 
@@ -127,12 +126,12 @@ Visit `http://localhost:5173` in your browser.
 
 ## 5. Development & Demo Mode
 
-CreatorFlow comes equipped with an **instant Demo Mode**. Even if you have not yet set up a Supabase account, the application runs with realistic pre-seeded Sri Lankan creator data:
+LENZXORA comes equipped with an **instant Demo Mode**. Even if you have not yet set up a Supabase account, the application runs with realistic pre-seeded Sri Lankan creator data:
 
 - **Quick Persona Switcher:** Click the dropdown badge in the header ("Select Role: Demo") to instantly toggle between:
   1. **Avantha Perera (Photographer):** Owner of *Lumina Studios Sri Lanka* (Colombo) with active bookings, editing kanban tasks, and financial income records.
   2. **Kasun Wickramasinghe (Client):** Event host with active requests, received bids, and confirmed bookings.
-  3. **CreatorFlow Admin:** Superadmin with platform statistics and moderation queues.
+  3. **LENZXORA Admin:** Superadmin with platform statistics and moderation queues.
 - **Persistent Local Store:** Any created requests, submitted offers, accepted bookings, calendar dates, or financial entries are saved to your browser's `localStorage` across page reloads.
 - **Reset Sandbox:** Click "Reset Demo Store" in Studio Settings anytime to restore initial data.
 
@@ -182,7 +181,7 @@ npm test
 
 ## 8. Deployment to Vercel
 
-CreatorFlow is pre-configured for Vercel deployment:
+LENZXORA is pre-configured for Vercel deployment:
 
 1. Push your repository to GitHub / GitLab.
 2. In the Vercel Dashboard, click **Add New Project** and select the repository.
@@ -219,8 +218,4 @@ CreatorFlow is pre-configured for Vercel deployment:
 
 ---
 
-© 2025 CreatorFlow Sri Lanka. Built for creators and clients.
-=======
-# LENZXORA-
-The dual-sided marketplace and business operating system for Sri Lankan photographers, filmmakers, and clients. Discover talent, compare transparent packages, and manage bookings seamlessly.
->>>>>>> 196368d3809b3d48601d549ae04b04bc1951efac
+© 2025 LENZXORA Sri Lanka. Built for creators and clients.

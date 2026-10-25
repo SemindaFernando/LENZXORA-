@@ -45,7 +45,7 @@ export const ClientLayout: React.FC = () => {
               <Camera className="w-4 h-4 text-amber-400" />
             </div>
             <div>
-              <div className="font-bold text-sm text-neutral-900">CreatorFlow</div>
+              <div className="font-bold text-sm text-neutral-900">LENZXORA</div>
               <div className="text-[10px] text-blue-600 uppercase font-semibold">Client Portal</div>
             </div>
           </Link>

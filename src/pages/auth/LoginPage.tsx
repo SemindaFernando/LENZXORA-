@@ -42,7 +42,7 @@ export const LoginPage: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-neutral-900 text-white flex items-center justify-center">
               <Camera className="w-5 h-5 text-amber-400" />
             </div>
-            <span className="font-bold text-xl text-neutral-900">CreatorFlow</span>
+            <span className="font-bold text-xl text-neutral-900">LENZXORA</span>
           </Link>
           <h2 className="mt-4 text-2xl font-extrabold text-neutral-900">Welcome Back</h2>
           <p className="mt-1 text-xs text-neutral-500">
@@ -138,7 +138,7 @@ export const LoginPage: React.FC = () => {
               <div className="flex items-center space-x-2">
                 <Shield className="w-4 h-4 text-purple-600" />
                 <div>
-                  <div className="text-xs font-bold text-neutral-900">CreatorFlow Admin</div>
+                  <div className="text-xs font-bold text-neutral-900">LENZXORA Admin</div>
                   <div className="text-[11px] text-neutral-500">Moderation & Platform Stats</div>
                 </div>
               </div>

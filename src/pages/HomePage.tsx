@@ -366,7 +366,7 @@ export const HomePage: React.FC = () => {
                 Run your entire studio from a single operating system.
               </h2>
               <p className="text-neutral-300 text-sm sm:text-base leading-relaxed">
-                CreatorFlow is more than a directory. Every registered photographer gets a private, secure business studio with full visibility over bookings, editing deadlines, payments in LKR, and client communication.
+                LENZXORA is more than a directory. Every registered photographer gets a private, secure business studio with full visibility over bookings, editing deadlines, payments in LKR, and client communication.
               </p>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
@@ -462,7 +462,7 @@ export const HomePage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900">
-            How CreatorFlow Works
+            How LENZXORA Works
           </h2>
           <p className="text-neutral-500 text-sm mt-1">
             Simple, safe, and transparent for clients and photographers alike
@@ -509,7 +509,7 @@ export const HomePage: React.FC = () => {
             Client Experiences
           </h2>
           <p className="text-neutral-500 text-sm mt-1">
-            Genuine verified reviews from completed bookings on CreatorFlow
+            Genuine verified reviews from completed bookings on LENZXORA
           </p>
         </div>
 

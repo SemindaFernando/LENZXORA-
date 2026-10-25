@@ -20,7 +20,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   // Default to photographer Avantha Perera for immediate rich studio demonstration, or client
   const [user, setUser] = useState<UserProfile | null>(() => {
-    const savedUserId = localStorage.getItem('creatorflow_active_user_id');
+    const savedUserId = localStorage.getItem('lenzxora_active_user_id') || localStorage.getItem('creatorflow_active_user_id');
     if (savedUserId) {
       const found = dataService.getUserById(savedUserId);
       if (found) return found;
@@ -32,9 +32,9 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     if (user) {
-      localStorage.setItem('creatorflow_active_user_id', user.id);
+      localStorage.setItem('lenzxora_active_user_id', user.id);
     } else {
-      localStorage.removeItem('creatorflow_active_user_id');
+      localStorage.removeItem('lenzxora_active_user_id');
     }
   }, [user]);
 

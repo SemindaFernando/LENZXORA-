@@ -444,7 +444,7 @@ export const PhotographerDetailPage: React.FC = () => {
               </div>
 
               <div className="text-xs text-neutral-500 max-w-md text-center sm:text-right">
-                All reviews are collected strictly from confirmed completed bookings on CreatorFlow.
+                All reviews are collected strictly from confirmed completed bookings on LENZXORA.
               </div>
             </div>
 
@@ -642,7 +642,7 @@ export const PhotographerDetailPage: React.FC = () => {
 
             <h3 className="font-bold text-base text-neutral-900">Report Profile</h3>
             <p className="text-xs text-neutral-500 mt-1">
-              CreatorFlow takes fraud and misleading portfolios seriously. Our moderation team reviews all reports.
+              LENZXORA takes fraud and misleading portfolios seriously. Our moderation team reviews all reports.
             </p>
 
             {reportSuccess ? (

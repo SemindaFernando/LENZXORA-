@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
                 <Camera className="w-5 h-5 text-amber-400" />
               </div>
               <span className="font-bold text-xl tracking-tight text-white">
-                Creator<span className="text-amber-500">Flow</span>
+                LENZ<span className="text-amber-500">XORA</span>
               </span>
             </Link>
             <p className="text-neutral-400 leading-relaxed text-xs sm:text-sm max-w-sm">
@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-amber-400 shrink-0" />
-                <span>support@creatorflow.lk</span>
+                <span>support@lenzxora.lk</span>
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="border-t border-neutral-800/80 mt-12 pt-6 flex flex-col sm:flex-row justify-between items-center text-xs text-neutral-400 gap-4">
           <div className="flex items-center space-x-1">
-            <span>© {new Date().getFullYear()} CreatorFlow Sri Lanka. Built for creators.</span>
+            <span>© {new Date().getFullYear()} LENZXORA Sri Lanka. Built for creators.</span>
           </div>
           <div className="flex items-center space-x-6">
             <Link to="/about" className="hover:text-white transition-colors">About</Link>
