@@ -132,6 +132,13 @@ class DataService {
     return this.users.find(u => u.id === id);
   }
 
+  public addUser(user: UserProfile): void {
+    if (!this.users.some(u => u.id === user.id)) {
+      this.users.push(user);
+      setStorage('users', this.users);
+    }
+  }
+
   public updateUserRole(userId: string, role: UserProfile['role']): void {
     const user = this.users.find(u => u.id === userId);
     if (user) {

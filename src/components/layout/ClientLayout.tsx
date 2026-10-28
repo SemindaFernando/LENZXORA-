@@ -124,6 +124,14 @@ export const ClientLayout: React.FC = () => {
             </h1>
           </div>
           <div className="flex items-center space-x-3">
+            {user?.role === 'admin' && (
+              <Link
+                to="/admin"
+                className="text-xs bg-purple-900 text-purple-200 hover:bg-purple-800 px-2.5 py-1.5 rounded-lg font-semibold flex items-center space-x-1 shadow-xs"
+              >
+                <span>Admin Panel</span>
+              </Link>
+            )}
             <Link
               to="/photographers"
               className="text-xs text-neutral-600 hover:text-neutral-900 px-2.5 py-1.5 rounded-lg border border-neutral-200 hover:bg-neutral-50 font-medium"

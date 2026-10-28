@@ -2,14 +2,10 @@ import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import {
   Camera,
-  Layers,
-  Search,
-  PlusCircle,
   User,
   Shield,
   Briefcase,
   LogOut,
-  ChevronDown,
   Menu,
   X,
   Sparkles,
@@ -17,11 +13,10 @@ import {
 import { useAuth } from '../../features/auth/AuthContext';
 
 export const Navbar: React.FC = () => {
-  const { user, role, logout, switchDemoUser } = useAuth();
+  const { user, role, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [demoMenuOpen, setDemoMenuOpen] = useState(false);
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -87,121 +82,90 @@ export const Navbar: React.FC = () => {
 
           {/* Right Action Bar */}
           <div className="flex items-center space-x-3">
-            {/* Quick Demo Role Switcher */}
-            <div className="relative">
-              <button
-                onClick={() => setDemoMenuOpen(!demoMenuOpen)}
-                className="hidden sm:flex items-center space-x-1.5 px-2.5 py-1.5 text-xs font-medium bg-neutral-100 text-neutral-700 hover:bg-neutral-200 rounded-lg border border-neutral-200 transition-colors"
-                title="Switch demo account to test different roles"
-              >
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span className="capitalize">{role || 'Select Role'}:</span>
-                <span className="font-semibold truncate max-w-[90px]">
-                  {user?.fullName.split(' ')[0] || 'Demo'}
-                </span>
-                <ChevronDown className="w-3.5 h-3.5 text-neutral-500" />
-              </button>
-
-              {demoMenuOpen && (
-                <div
-                  className="absolute right-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-neutral-200 py-2 z-50"
-                  onMouseLeave={() => setDemoMenuOpen(false)}
-                >
-                  <div className="px-3 py-1.5 border-b border-neutral-100 text-[11px] font-semibold text-neutral-400 uppercase tracking-wider">
-                    Switch Test Persona
-                  </div>
-                  <button
-                    onClick={() => {
-                      switchDemoUser('photo-1');
-                      setDemoMenuOpen(false);
-                      navigate('/studio');
-                    }}
-                    className="w-full text-left px-3 py-2 text-xs hover:bg-amber-50/70 flex items-center justify-between"
-                  >
-                    <div>
-                      <div className="font-semibold text-neutral-900 flex items-center gap-1.5">
-                        <Briefcase className="w-3.5 h-3.5 text-amber-600" />
-                        Avantha (Photographer)
-                      </div>
-                      <div className="text-neutral-500 text-[11px]">Lumina Studios (Colombo)</div>
-                    </div>
-                    {user?.id === 'photo-1' && (
-                      <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">Active</span>
-                    )}
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      switchDemoUser('client-1');
-                      setDemoMenuOpen(false);
-                      navigate('/client');
-                    }}
-                    className="w-full text-left px-3 py-2 text-xs hover:bg-amber-50/70 flex items-center justify-between"
-                  >
-                    <div>
-                      <div className="font-semibold text-neutral-900 flex items-center gap-1.5">
-                        <User className="w-3.5 h-3.5 text-blue-600" />
-                        Kasun (Client)
-                      </div>
-                      <div className="text-neutral-500 text-[11px]">Event Host & Reviewer</div>
-                    </div>
-                    {user?.id === 'client-1' && (
-                      <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded">Active</span>
-                    )}
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      switchDemoUser('admin-1');
-                      setDemoMenuOpen(false);
-                      navigate('/admin');
-                    }}
-                    className="w-full text-left px-3 py-2 text-xs hover:bg-amber-50/70 flex items-center justify-between"
-                  >
-                    <div>
-                      <div className="font-semibold text-neutral-900 flex items-center gap-1.5">
-                        <Shield className="w-3.5 h-3.5 text-purple-600" />
-                        Platform Admin
-                      </div>
-                      <div className="text-neutral-500 text-[11px]">Moderation & Statistics</div>
-                    </div>
-                    {user?.id === 'admin-1' && (
-                      <span className="text-[10px] bg-purple-100 text-purple-800 font-bold px-1.5 py-0.5 rounded">Active</span>
-                    )}
-                  </button>
-                </div>
-              )}
-            </div>
-
-            {/* Role Dedicated Dashboard Link */}
             {user ? (
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2.5">
+                {/* Photographer Exclusive Studio Dashboard */}
                 {role === 'photographer' && (
-                  <Link
-                    to="/studio"
-                    className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 text-xs font-semibold bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors shadow-sm"
-                  >
-                    <Briefcase className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Studio Dashboard</span>
-                  </Link>
+                  <>
+                    <Link
+                      to="/studio"
+                      className="hidden sm:inline-flex items-center space-x-1.5 px-3.5 py-2 text-xs font-semibold bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors shadow-sm"
+                    >
+                      <Briefcase className="w-3.5 h-3.5 text-amber-400" />
+                      <span>Studio Dashboard</span>
+                    </Link>
+                    <div className="hidden sm:flex items-center space-x-2 px-2.5 py-1.5 rounded-lg bg-neutral-50 border border-neutral-200">
+                      <img
+                        src={user.avatarUrl || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400'}
+                        alt=""
+                        className="w-5 h-5 rounded-full object-cover"
+                      />
+                      <span className="text-xs font-semibold text-neutral-800 truncate max-w-[100px]">
+                        {user.fullName.split(' ')[0]}
+                      </span>
+                      <span className="text-[10px] bg-amber-100 text-amber-800 font-bold px-1.5 py-0.5 rounded">
+                        Photographer
+                      </span>
+                    </div>
+                  </>
                 )}
+
+                {/* Client Exclusive Portal */}
                 {role === 'client' && (
-                  <Link
-                    to="/client"
-                    className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 text-xs font-semibold bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors shadow-sm"
-                  >
-                    <User className="w-3.5 h-3.5 text-blue-400" />
-                    <span>My Dashboard</span>
-                  </Link>
+                  <>
+                    <Link
+                      to="/client"
+                      className="hidden sm:inline-flex items-center space-x-1.5 px-3.5 py-2 text-xs font-semibold bg-neutral-900 text-white rounded-lg hover:bg-neutral-800 transition-colors shadow-sm"
+                    >
+                      <User className="w-3.5 h-3.5 text-blue-400" />
+                      <span>Client Portal</span>
+                    </Link>
+                    <div className="hidden sm:flex items-center space-x-2 px-2.5 py-1.5 rounded-lg bg-neutral-50 border border-neutral-200">
+                      <img
+                        src={user.avatarUrl || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400'}
+                        alt=""
+                        className="w-5 h-5 rounded-full object-cover"
+                      />
+                      <span className="text-xs font-semibold text-neutral-800 truncate max-w-[100px]">
+                        {user.fullName.split(' ')[0]}
+                      </span>
+                      <span className="text-[10px] bg-blue-100 text-blue-800 font-bold px-1.5 py-0.5 rounded">
+                        Client
+                      </span>
+                    </div>
+                  </>
                 )}
+
+                {/* Administrator Full Platform Access */}
                 {role === 'admin' && (
-                  <Link
-                    to="/admin"
-                    className="hidden sm:inline-flex items-center space-x-1.5 px-3 py-2 text-xs font-semibold bg-purple-900 text-white rounded-lg hover:bg-purple-800 transition-colors shadow-sm"
-                  >
-                    <Shield className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Admin Panel</span>
-                  </Link>
+                  <>
+                    <Link
+                      to="/admin"
+                      className="hidden sm:inline-flex items-center space-x-1.5 px-3.5 py-2 text-xs font-semibold bg-purple-900 text-white rounded-lg hover:bg-purple-800 transition-colors shadow-sm"
+                    >
+                      <Shield className="w-3.5 h-3.5 text-amber-400" />
+                      <span>Admin Panel</span>
+                    </Link>
+                    <Link
+                      to="/studio"
+                      className="hidden lg:inline-flex text-xs font-medium text-neutral-600 hover:text-neutral-900 px-2 py-1 rounded bg-neutral-100"
+                    >
+                      Studio View
+                    </Link>
+                    <Link
+                      to="/client"
+                      className="hidden lg:inline-flex text-xs font-medium text-neutral-600 hover:text-neutral-900 px-2 py-1 rounded bg-neutral-100"
+                    >
+                      Client View
+                    </Link>
+                    <div className="hidden sm:flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg bg-purple-50 border border-purple-200">
+                      <Shield className="w-3.5 h-3.5 text-purple-700" />
+                      <span className="text-xs font-bold text-purple-900">Admin</span>
+                      <span className="text-[10px] bg-purple-200 text-purple-900 font-semibold px-1 py-0.5 rounded">
+                        Full Access
+                      </span>
+                    </div>
+                  </>
                 )}
 
                 <button
@@ -209,7 +173,7 @@ export const Navbar: React.FC = () => {
                     logout();
                     navigate('/login');
                   }}
-                  className="p-2 text-neutral-500 hover:text-neutral-900 rounded-lg hover:bg-neutral-100"
+                  className="p-2 text-neutral-500 hover:text-neutral-900 rounded-lg hover:bg-neutral-100 transition-colors"
                   title="Logout"
                 >
                   <LogOut className="w-4 h-4" />

@@ -62,7 +62,27 @@ const RequireRole: React.FC<{ role: 'photographer' | 'client' | 'admin'; childre
   if (!user) {
     return <Navigate to="/login" replace />;
   }
-  // In demo mode or if user has the role, permit access; if mismatched, allow viewing or redirect gracefully
+
+  // Admin has full access to every area of LENZXORA
+  if (user.role === 'admin') {
+    return <>{children}</>;
+  }
+
+  // Admin route: only authorized platform administrators are allowed
+  if (role === 'admin') {
+    return <Navigate to="/" replace />;
+  }
+
+  // Photographer studio route: clients are strictly blocked and sent to their client portal
+  if (role === 'photographer' && user.role !== 'photographer') {
+    return <Navigate to="/client" replace />;
+  }
+
+  // Client portal route: photographers are redirected to their studio dashboard
+  if (role === 'client' && user.role !== 'client') {
+    return <Navigate to="/studio" replace />;
+  }
+
   return <>{children}</>;
 };
 

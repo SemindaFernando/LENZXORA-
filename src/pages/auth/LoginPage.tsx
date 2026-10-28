@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Camera, Mail, Lock, ArrowRight, UserCheck, Briefcase, User, Shield } from 'lucide-react';
+import { Camera, Mail, Lock, ArrowRight, Briefcase, User } from 'lucide-react';
 import { useAuth } from '../../features/auth/AuthContext';
+import { dataService } from '../../services/dataService';
 
 export const LoginPage: React.FC = () => {
   const navigate = useNavigate();
@@ -18,7 +19,14 @@ export const LoginPage: React.FC = () => {
     try {
       const success = await login(email);
       if (success) {
-        navigate('/');
+        const currentUser = dataService.getUsers().find(u => u.email.toLowerCase() === email.toLowerCase());
+        if (currentUser?.role === 'admin' || email.toLowerCase().includes('admin')) {
+          navigate('/admin');
+        } else if (currentUser?.role === 'photographer') {
+          navigate('/studio');
+        } else {
+          navigate('/client');
+        }
       } else {
         setError('Invalid credentials.');
       }
@@ -97,10 +105,10 @@ export const LoginPage: React.FC = () => {
           </button>
         </form>
 
-        {/* Quick Demo Personas Bar */}
+        {/* Quick Instant Sign-In — ONLY Photographer & Client */}
         <div className="pt-4 border-t border-neutral-100 space-y-2.5">
           <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400 block text-center">
-            Instant Demo Account Sign-In
+            Instant Test Sign-In
           </span>
           <div className="grid grid-cols-1 gap-2">
             <button
@@ -114,7 +122,7 @@ export const LoginPage: React.FC = () => {
                   <div className="text-[11px] text-neutral-500">Lumina Studios Sri Lanka</div>
                 </div>
               </div>
-              <span className="text-[10px] font-bold text-amber-700 uppercase">Test Studio</span>
+              <span className="text-[10px] font-bold text-amber-700 uppercase">Photographer Studio</span>
             </button>
 
             <button
@@ -128,30 +136,30 @@ export const LoginPage: React.FC = () => {
                   <div className="text-[11px] text-neutral-500">Event Host & Bookings</div>
                 </div>
               </div>
-              <span className="text-[10px] font-bold text-blue-700 uppercase">Test Client</span>
-            </button>
-
-            <button
-              onClick={() => handleQuickLogin('admin-1', '/admin')}
-              className="p-2.5 rounded-xl border border-neutral-200 hover:bg-purple-50/50 flex items-center justify-between text-left transition-colors"
-            >
-              <div className="flex items-center space-x-2">
-                <Shield className="w-4 h-4 text-purple-600" />
-                <div>
-                  <div className="text-xs font-bold text-neutral-900">LENZXORA Admin</div>
-                  <div className="text-[11px] text-neutral-500">Moderation & Platform Stats</div>
-                </div>
-              </div>
-              <span className="text-[10px] font-bold text-purple-700 uppercase">Admin</span>
+              <span className="text-[10px] font-bold text-blue-700 uppercase">Client Portal</span>
             </button>
           </div>
         </div>
 
-        <div className="text-center text-xs text-neutral-500">
-          Don't have an account?{' '}
-          <Link to="/register" className="font-bold text-neutral-900 hover:underline">
-            Register here
-          </Link>
+        <div className="flex flex-col items-center justify-center gap-2 text-xs text-neutral-500">
+          <div>
+            Don't have an account?{' '}
+            <Link to="/register" className="font-bold text-neutral-900 hover:underline">
+              Register here
+            </Link>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => {
+              setEmail('admin@lenzxora.lk');
+              setPassword('admin123');
+            }}
+            className="text-[11px] text-neutral-400 hover:text-neutral-700 transition-colors underline pt-1"
+            title="Administrator Sign-In"
+          >
+            Administrator Access
+          </button>
         </div>
       </div>
     </div>

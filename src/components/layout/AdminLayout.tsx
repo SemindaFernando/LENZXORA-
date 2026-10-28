@@ -64,9 +64,26 @@ export const AdminLayout: React.FC = () => {
         </nav>
 
         <div className="p-3 border-t border-neutral-800 space-y-1">
+          <div className="px-3 py-1 text-[10px] font-semibold text-neutral-500 uppercase tracking-wider">
+            Full Platform Access
+          </div>
+          <Link
+            to="/studio"
+            className="flex items-center space-x-2 px-3 py-1.5 text-xs text-amber-400 hover:text-amber-300 rounded-lg hover:bg-neutral-900 transition-colors"
+          >
+            <Camera className="w-3.5 h-3.5" />
+            <span>Photographer Studio View</span>
+          </Link>
+          <Link
+            to="/client"
+            className="flex items-center space-x-2 px-3 py-1.5 text-xs text-blue-400 hover:text-blue-300 rounded-lg hover:bg-neutral-900 transition-colors"
+          >
+            <Users className="w-3.5 h-3.5" />
+            <span>Client Portal View</span>
+          </Link>
           <Link
             to="/"
-            className="flex items-center space-x-2 px-3 py-1.5 text-xs text-neutral-400 hover:text-white rounded-lg hover:bg-neutral-900"
+            className="flex items-center space-x-2 px-3 py-1.5 text-xs text-neutral-400 hover:text-white rounded-lg hover:bg-neutral-900 transition-colors"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Return to Public Site</span>
@@ -76,7 +93,7 @@ export const AdminLayout: React.FC = () => {
               logout();
               navigate('/login');
             }}
-            className="w-full flex items-center space-x-2 px-3 py-1.5 text-xs text-red-400 hover:bg-red-950/40 rounded-lg text-left"
+            className="w-full flex items-center space-x-2 px-3 py-1.5 text-xs text-red-400 hover:bg-red-950/40 rounded-lg text-left transition-colors"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span>Logout</span>

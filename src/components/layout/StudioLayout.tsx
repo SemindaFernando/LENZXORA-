@@ -30,7 +30,9 @@ export const StudioLayout: React.FC = () => {
   const navigate = useNavigate();
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
-  const photographer = user?.id ? dataService.getPhotographerById(user.id) : undefined;
+  const photographer =
+    (user?.id ? dataService.getPhotographerById(user.id) : undefined) ||
+    (user?.role === 'admin' ? dataService.getPhotographers()[0] : undefined);
   const studioName = photographer?.studioName || user?.fullName || 'Photographer Studio';
 
   const navLinks = [
@@ -155,6 +157,14 @@ export const StudioLayout: React.FC = () => {
           </div>
 
           <div className="flex items-center space-x-3">
+            {user?.role === 'admin' && (
+              <Link
+                to="/admin"
+                className="text-xs bg-purple-900 text-purple-200 hover:bg-purple-800 px-2.5 py-1.5 rounded-lg font-semibold flex items-center space-x-1 shadow-xs"
+              >
+                <span>Admin Panel</span>
+              </Link>
+            )}
             <Link
               to="/"
               className="text-xs text-neutral-600 hover:text-neutral-900 px-2.5 py-1.5 rounded-lg border border-neutral-200 hover:bg-neutral-50 font-medium"

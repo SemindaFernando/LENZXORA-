@@ -18,14 +18,14 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  // Default to photographer Avantha Perera for immediate rich studio demonstration, or client
+  // Session persistence via localStorage
   const [user, setUser] = useState<UserProfile | null>(() => {
     const savedUserId = localStorage.getItem('lenzxora_active_user_id') || localStorage.getItem('creatorflow_active_user_id');
     if (savedUserId) {
       const found = dataService.getUserById(savedUserId);
       if (found) return found;
     }
-    return dataService.getUserById('photo-1') || null;
+    return null;
   });
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -35,6 +35,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       localStorage.setItem('lenzxora_active_user_id', user.id);
     } else {
       localStorage.removeItem('lenzxora_active_user_id');
+      localStorage.removeItem('creatorflow_active_user_id');
     }
   }, [user]);
 
@@ -45,17 +46,23 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       let matched = users.find(u => u.email.toLowerCase() === email.toLowerCase());
 
       if (!matched && email) {
-        // Auto-create demo profile for user convenience
-        const role = requestedRole || 'client';
+        // Auto-detect admin email or fallback role
+        const isAdmin = email.toLowerCase().includes('admin');
+        const role = isAdmin ? 'admin' : (requestedRole || 'client');
         const newUser: UserProfile = {
-          id: `usr-${Date.now()}`,
+          id: isAdmin ? 'admin-1' : `usr-${Date.now()}`,
           email,
-          fullName: email.split('@')[0],
+          fullName: isAdmin ? 'Platform Administrator' : email.split('@')[0],
           role,
-          avatarUrl: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400',
+          avatarUrl: isAdmin
+            ? 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400'
+            : (role === 'photographer'
+                ? 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=400'
+                : 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&q=80&w=400'),
           createdAt: new Date().toISOString(),
           updatedAt: new Date().toISOString(),
         };
+        dataService.addUser(newUser);
         matched = newUser;
       }
 
@@ -122,6 +129,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('lenzxora_active_user_id');
     localStorage.removeItem('creatorflow_active_user_id');
   };
 

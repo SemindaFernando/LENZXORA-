@@ -20,8 +20,10 @@ import {
 import { dataService } from '../services/dataService';
 import { formatLKR } from '../utils/formatters';
 import { PhotographyCategory } from '../types';
+import { useAuth } from '../features/auth/AuthContext';
 
 export const HomePage: React.FC = () => {
+  const { user, role } = useAuth();
   const navigate = useNavigate();
   const [selectedCity, setSelectedCity] = useState('All');
   const [selectedCategory, setSelectedCategory] = useState<PhotographyCategory | 'All'>('All');
@@ -404,13 +406,31 @@ export const HomePage: React.FC = () => {
               </div>
 
               <div className="pt-2">
-                <Link
-                  to="/studio"
-                  className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-amber-400 text-neutral-950 font-bold text-sm hover:bg-amber-300 transition-colors shadow-lg"
-                >
-                  <span>Explore Photographer Studio Demo</span>
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                {role === 'photographer' || role === 'admin' ? (
+                  <Link
+                    to="/studio"
+                    className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-amber-400 text-neutral-950 font-bold text-sm hover:bg-amber-300 transition-colors shadow-lg"
+                  >
+                    <span>Open Photographer Studio</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : role === 'client' ? (
+                  <Link
+                    to="/client"
+                    className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-500 transition-colors shadow-lg"
+                  >
+                    <span>Open My Client Portal</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <Link
+                    to="/register"
+                    className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-amber-400 text-neutral-950 font-bold text-sm hover:bg-amber-300 transition-colors shadow-lg"
+                  >
+                    <span>Join as a Photographer</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                )}
               </div>
             </div>
 
